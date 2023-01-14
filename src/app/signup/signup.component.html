@@ -1,0 +1,37 @@
+
+<div class="background">
+
+   
+    <form (ngSubmit)="onSignup()" #f="ngForm">
+        <div class = "custom"><a [routerLink]="['/login']"> Login</a></div>
+        <h3>Signup Here</h3>
+    
+        <label for="username">Username</label>
+        <input  type="text" placeholder="Username" id="username" class = "form-control" ngModel name = "username"
+        required minlength = "3"
+        #username = "ngModel"
+        >
+        <span class ="help-block" *ngIf="username.invalid &&username.touched">Please enter more than 3 character</span>
+    
+        <label for="email">Email</label>
+        <input  type="text" placeholder="Email " id="email" ngModel name="email" required email
+        #email = "ngModel"	
+        >
+        <span class ="help-block" *ngIf="email.invalid && email.touched">Please enter the valid email</span>
+
+        <label for="password">Password</label>
+        <input  type="password" placeholder="Password" id="password" ngModel name="password"
+        required minlength="8"
+        #password = "ngModel">
+        <span class ="help-block" *ngIf="password.invalid &&password.touched">Password should be of atleast 8 character </span>
+    
+        <button type = "submit" 
+        [disabled]="f.invalid">Sign Up</button>
+
+    </form>
+    
+
+    </div>
+
+    
+    

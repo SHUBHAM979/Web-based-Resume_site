@@ -1,0 +1,73 @@
+<div class = "top">
+
+<div class ="ExpButton"> <button type = "button" class = "btn btn-primary" (click) = "onaddProject()">Add Project</button></div>
+
+<h3>Project</h3>
+
+<div *ngIf="flag">
+    <form (ngSubmit)="onSubmit()" #f = "ngForm">
+        <div id = "Experience">
+         
+            <div class = "form-group"><br>
+                <label for="ProjectTitle">Project Title</label><br>
+                <input  type="text" placeholder="Title" id="ProjectTitle" class = "form-control" ngModel name = "ProjectTitle"
+                required 
+                #PT = "ngModel"
+                >
+                <span class ="help-block" *ngIf="PT.invalid &&PT.touched">Please enter Project Title</span>
+            </div>
+            <div class = "form-group"><br>
+                <label for="projectURL">Project URL</label><br>
+                <input  type="text" placeholder="URL" id="Position" class = "form-control" ngModel name = "url"
+                required 
+                #url = "ngModel"
+                >
+                <span class ="help-block" *ngIf="url.invalid &&url.touched">Please enter the Project URL</span>
+            </div>
+            <div class = "form-group"><br>
+                <label for="projectDescription">Project Description</label><br>
+                <textarea   row ="3"   ngModel name = "projectDescription"
+                required 
+                #projectDescription = "ngModel"
+                ></textarea>
+                <span class ="help-block" *ngIf="projectDescription.invalid &&projectDescription.touched">Please enter Project Description</span>
+            
+              </div>
+          
+            
+            <div class = "form-group">
+                <label for="projectDuration">Project Duration</label><br>
+                <input  type="text" placeholder="Duration" id="us" class = "form-control" ngModel name = "Duration"
+                required 
+                #duration = "ngModel"
+                >
+                <span class ="help-block" *ngIf="duration.invalid &&duration.touched">Please enter Duartion</span>
+            </div> 
+    
+        </div>
+        <button class ="btn btn-primary" type = "submit"  [disabled] ="f.invalid" > Submit</button>
+    </form>
+    </div>
+    
+<div class ="for">
+<div class ="efor" *ngFor="let proj of pastprojects">
+    <div class = "custom">
+        <label for="ProjectTitle">Project Title</label><br>
+        {{proj.projectTitle}}
+    </div>
+    <div class = "custom">
+        <label for="position">Project URL</label><br>
+        <a href = "{{proj.projectUrl}}">{{proj.projectUrl}}</a>
+    </div>
+    <div class = "custom">
+        <label for="description">Project Description </label><br>
+        <p>{{proj.projectDescription}}</p>
+    </div>
+    <div class = "custom">
+        <label for="duration">Duration</label><br>
+       <p> {{proj.projectDuration}}</p>
+    </div>
+</div>
+
+</div>
+</div>

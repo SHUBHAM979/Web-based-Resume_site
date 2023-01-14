@@ -1,0 +1,72 @@
+<div class = "whole">
+<div class = "ExpButton"><button type = "button" class = "btn btn-primary" (click) = "onaddLicence()">Add Licence</button></div>
+<h3>Licence and certification</h3>
+<div class = "whole" >
+<div *ngIf="flag">
+    <form (ngSubmit)="onSubmit()" #f = "ngForm">
+        <div id = "Licence">
+         
+            <div class = "form-group">
+                <label for="Name">Name</label><br>
+                <input  type="text" placeholder="name" id="Name" class = "form-control" ngModel name = "name"
+                required 
+                #name = "ngModel"
+                >
+                <span class ="help-block" *ngIf="name.invalid &&name.touched">Please enter the Name Of Licence</span>
+            </div>
+            <div class = "form-group"><br>
+                <label for="issuingOrganisation">Issuing Organisation</label><br>
+                <input  type="text" placeholder="Issuing Organisation" id="issuingOrganisation" class = "form-control" ngModel name = "issuingOrganisation"
+                required 
+                #issuingOrganisation = "ngModel"
+                >
+                <span class ="help-block" *ngIf="issuingOrganisation.invalid &&issuingOrganisation.touched">Please enter the Issuing Organisation</span>
+            </div>
+            <div class = "form-group"><br>
+                <label for="certificateLink">Certificate Link</label><br>
+                <input  type="text" placeholder="Certificate Link" id="certificateLink" class = "form-control" ngModel name = "cL"
+                required 
+                #certificateLink = "ngModel"
+                >
+                <span class ="help-block" *ngIf="certificateLink.invalid && certificateLink.touched">Please enter certificateLink</span>
+            
+              </div>
+          
+            
+            <div class = "form-group">
+                <label for="issueDate">Issue Date</label><br>
+                <input  type="text" placeholder="Issue Date" id="issueDate" class = "form-control" ngModel name = "issueDate"
+                required 
+                #issueDate = "ngModel"
+                >
+                <span class ="help-block" *ngIf="issueDate.invalid && issueDate.touched">Please enter Issuing Date</span>
+            </div> 
+    
+        </div>
+        <button class ="btn btn-primary" type = "submit"  [disabled] ="f.invalid" > Submit</button>
+    </form>
+    </div>
+<div class ="for">
+    <div class ="efor" *ngFor="let lic of pastlicences">
+        <div class ="custom">
+            <label for="Licence NAme">Licence Name</label><br>
+            {{lic.name}}
+        </div>
+        <div class ="custom">
+            <label for="issuingAuthority">Issuing Authority </label><br>
+            {{lic.issuingAuthority}}
+        </div>
+        <div class ="custom">
+            <label for="CertificationUrl">Certification URL</label><br>
+            <a href = "{{lic.certificationUrl}}">{{lic.certificationUrl}}</a>
+        </div>
+        
+        <div class ="custom">
+            <label for="Issue-Date">Issue Date</label><br>
+            {{lic.issueDate}}
+        </div>
+    </div>
+</div>
+</div>
+</div>
+

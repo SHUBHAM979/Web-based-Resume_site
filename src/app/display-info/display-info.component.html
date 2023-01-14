@@ -1,0 +1,21 @@
+<div>Basic  onboarding Form</div>
+<p data-item='form'>Forms</p>
+
+<section>
+  <div> <button class = "btn btn-primary" (click) = "onToDataForm()">Data Form</button></div>
+  
+  <nav>
+    <ul class="menuItems">
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact : true}"><a routerLink ="/home/generalinfo" data-item='Home'>General Info</a></li>
+      <li ><a routerLink ="/home/exp" data-item='About'>Experience</a></li>
+      <li><a routerLink ="/home/skills"  data-item='Skills'>Skills</a></li>
+      <li><a routerLink ="/home/projects"  data-item='Projects'>Projects</a></li>
+      <li><a routerLink ="/home/licence" data-item='Licences'>Licences</a></li>
+      <li><a  routerLink ="/home/course" data-item='Courses'>Courses</a></li>
+      <li><a routerLink ="/home/contact" data-item='Contact'>Contact</a></li>
+    </ul>
+  </nav>
+
+</section>
+
+<router-outlet></router-outlet>

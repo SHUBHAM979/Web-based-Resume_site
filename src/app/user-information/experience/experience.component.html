@@ -1,0 +1,96 @@
+<div class ="whole" ><div class = "ExpButton">
+<button class ="btn btn-primary" type = "button"  (click) = "addExperience()">Add Experience</button>	
+</div>
+<h3>Experience</h3>
+
+<div *ngIf = "flag"  class = "expform">
+    <form (ngSubmit)="onSubmit()" #f = "ngForm">
+        <div id = "Experience">
+            
+            <div class = "form-group"><br>
+                <label for="companyName">Company Name</label><br>
+                <input  type="text" placeholder="Company Name" id="companyName" class = "form-control" ngModel name = "companyName"
+                required 
+                #companyName = "ngModel"
+                >
+                <span class ="help-block" *ngIf="companyName.invalid &&companyName.touched">Please enter Company Name</span>
+            </div>
+            <div class = "form-group"><br>
+                <label for="position">Position</label><br>
+                <input  type="text" placeholder="Position" id="Position" class = "form-control" ngModel name = "position"
+                required 
+                #position = "ngModel"
+                >
+                <span class ="help-block" *ngIf="position.invalid &&position.touched">Please enter the lastName</span>
+            </div>
+            <div class = "form-group">
+                <label for="doj">Date of Joining</label><br>
+                <input  type="text" placeholder="Date of Joining" id="doj" class = "form-control" ngModel name = "doj"
+                required 
+                #doj = "ngModel"
+                >
+                <span class ="help-block" *ngIf="doj.invalid &&doj.touched">Please enter date of joining</span>
+            </div> 
+            <div class = "form-group">
+                <label for="doj">Date of leaving</label><br>
+                <input  type="text" placeholder="Date of leaving" id="dol" class = "form-control" ngModel name = "dol"
+                required 
+                #dol = "ngModel"
+                >
+                <span class ="help-block" *ngIf="dol.invalid &&dol.touched">Please enter date of joining</span>
+            </div> 
+            
+            <div class = "form-group">
+                <label for="description">Description </label> <br>
+                <textarea   row ="3"   ngModel name = "description"
+                required 
+                #description = "ngModel"
+                ></textarea>
+                <span class ="help-block" *ngIf="description.invalid &&description.touched">Please enter job description</span>
+            </div> 
+            
+            <div class = "form-group">
+                <label for="usedSkills">Used Skills</label><br>
+                <input  type="text" placeholder="usedSkills" id="us" class = "form-control" ngModel name = "us"
+                required 
+                #us = "ngModel"
+                >
+                <span class ="help-block" *ngIf="us.invalid &&us.touched">Please enter date of joining</span>
+            </div> 
+
+        </div>
+        <button class ="btn btn-primary" type = "submit"  [disabled] ="f.invalid" > Submit</button>
+    </form>
+</div>
+
+
+<div class ="for">
+<div class ="efor" *ngFor="let exp of pastexperince">
+    <div class = "custom">
+        <label for="companyName">Company Name</label><br>
+        {{exp.companyName}}
+    </div>
+    <div class = "custom">
+        <label for="position">Position</label><br>
+        {{exp.position}}
+    </div>
+    <div class = "custom">
+        <label for="doj">Date of Joining</label><br>
+        {{exp.dateOfJoining}}
+    </div>
+    <div class = "custom">
+        <label for="dol">Date of leaving</label> <br>
+        {{exp.dateOfLeaving}}
+    </div>
+    <div class = "custom">
+        <label for="description">Description </label><br>
+        {{exp.workDescription}}
+    </div>
+    <div class = "custom">
+        <label for="usedSkills">Used Skills</label><br>
+        {{exp.usedTechnology}}
+    </div>
+</div>
+</div>
+</div>
+
